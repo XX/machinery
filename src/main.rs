@@ -1,8 +1,3 @@
-enum Unit {
-    Detail(Detail),
-    Product(Detail),
-}
-
 enum Detail {
     Uniform(UniformDetail),
     Composite(CompositeDetail),
@@ -17,6 +12,8 @@ struct CompositeDetail {
     details: Vec<Detail>,
 }
 
+struct Product(Detail);
+
 struct Task;
 
 struct FullTaskList(Vec<Task>);
@@ -29,7 +26,8 @@ struct WorkRegistry {
 
 struct Creator {
     work_registry: WorkRegistry,
-
+    details: Vec<Detail>,
+    products: Vec<Product>,
 }
 
 struct Game {
