@@ -4,5 +4,17 @@ version = "0.1.0"
 authors = ["XX <freecoder.xx@gmail.com>"]
 edition = "2018"
 
+[lib]
+name = "machinery"
+path = "src/lib/lib.rs"
+
+[[bin]]
+name = "main"
+path = "src/bin/main.rs"
+
+[[bin]]
+name = "cli"
+path = "src/bin/cli.rs"
+
 [dependencies]
 strum_macros = "0.12"
