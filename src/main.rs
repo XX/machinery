@@ -1,38 +1,27 @@
-enum Detail {
-    Uniform(UniformDetail),
-    Composite(CompositeDetail),
-}
+#![allow(dead_code)]
 
-struct UniformDetail {
-    name: String,
-}
+mod unit;
+mod comp;
+mod task;
 
-struct CompositeDetail {
-    name: String,
-    details: Vec<Detail>,
-}
-
-struct Product(Detail);
-
-struct Task;
-
-struct FullTaskList(Vec<Task>);
-
-struct WorkRegistry {
-    available_tasks: Vec<Task>,
-    completed_tasks: Vec<Task>,
-    actual_task: Option<Task>,
-}
+use crate::comp::{Component, Machine};
+use crate::task::{FullTaskList, WorkRegistry};
 
 struct Creator {
     work_registry: WorkRegistry,
-    details: Vec<Detail>,
-    products: Vec<Product>,
+    components: Vec<Component>,
+    machines: Vec<Machine>,
+}
+
+enum ActionMode {
+    Design,
+    Work,
 }
 
 struct Game {
     tasks: FullTaskList,
     creator: Creator,
+    mode: ActionMode,
 }
 
 fn main() {

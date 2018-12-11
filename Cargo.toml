@@ -5,3 +5,4 @@ authors = ["XX <freecoder.xx@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+strum_macros = "0.12"
